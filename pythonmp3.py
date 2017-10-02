@@ -11,16 +11,19 @@ print("Title: ", tag.title)
 print("Artist: ", tag.artist)
 print("Album: ", tag.album)
 print("Track: ", tag.track)
-print('To change a tag type tag:value (example: title:Champions)')
+print("To change a tag type tag:value (example: title:Champions)")
 
 
 # function to change the tags
 def tagchange():
     print("If you're done enter exit")
+    # user input
     changes = input("Enter change: ")
+    # check if user wants to exit or change a tag
     if changes == "exit":
         sys.exit()
     else:
+        # slice the string into the first 5 characters to check tag
         temp_changes = changes[:5]
         if (temp_changes == "Title") or (temp_changes == "title"):
             new_tag = changes[6:]
@@ -46,5 +49,8 @@ def tagchange():
             tag.write()
             print("Track changed!")
             tagchange()
+        else:
+            print("Invalid command, to change a tag type tag:value.")
 
+# function call to start infinite loop
 tagchange()
